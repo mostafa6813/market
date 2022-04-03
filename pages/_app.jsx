@@ -3,9 +3,13 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
 import { useEffect } from 'react'
-import Router from "next/router"
+import { Provider } from 'react-redux'
+import { useStore } from '../state-management/store'
 
-function MyApp({ Component, pageProps, store, ...rest }) {
+
+
+function MyApp({ Component, pageProps }) {
+  const store = useStore(pageProps.initialReduxState)
   let myScroll = 0
   useEffect(() => {
     const ele = document.getElementById('header')
@@ -19,18 +23,10 @@ function MyApp({ Component, pageProps, store, ...rest }) {
         myScroll = window.scrollY
       }
     })
-    Router.events.on('routeChangeStart', () => {
-      document.getElementById("nav").classList.remove('menu')
-    })
-    window.onresize = function () {
-      document.getElementById("nav").classList.remove('menu')
-    }
-    window.onscroll = function () {
-      document.getElementById("nav").classList.remove('menu')
-    }
-  },[])
+  }, [])
 
   return (
+    <Provider store={store}>
       <Layout>
         <Head>
           <link rel="icon" href="/logo.png" />
@@ -38,6 +34,7 @@ function MyApp({ Component, pageProps, store, ...rest }) {
         <NextNProgress />
         <Component {...pageProps} />
       </Layout>
+    </Provider>
   )
 }
 
