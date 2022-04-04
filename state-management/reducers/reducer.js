@@ -7,9 +7,9 @@ const initialState = {
 const menuIconReducer = (state = initialState, { type }) => {
     switch (type) {
         case 'BAR':
-            return { menuIcon: 'bar' }
+            return { ...state, menuIcon: 'bar' }
         case 'CLEAR':
-            return { menuIcon: 'clear' }
+            return { ...state, menuIcon: 'clear' }
         default:
             return state
     }

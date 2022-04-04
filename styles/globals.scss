@@ -10,7 +10,7 @@ html {
 
 html,
 body {
-  padding: 0;
+  padding: 43px 0 0 0;
   margin: 0;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -21,36 +21,94 @@ a {
   text-decoration: none;
 }
 
-.menu{
+
+// slider setting
+.button__bar {
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  padding: 0;
+  border-radius: 40px;
+  width: auto;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  text-align: center;
+}
+
+.button__bar li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 3px;
+  padding: 0;
+}
+
+.button__bar li button {
+  border: none;
+  background: #e9e9e9;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 7.5px;
+}
+
+.button__bar li.slick-active button {
+  transition: all 500ms;
+  width:30px;
+}
+
+.button__bar li button:hover,
+.button__bar li button:focus {
+  background: rgba(231, 98, 98, 0.8);
+  outline: 0;
+}
+
+.slick-slide img {
+  border: 5px solid #fff;
+  display: block;
+  margin: auto;
+}
+// end slider setting
+
+.menu {
   height: 200px !important;
   margin-bottom: 5px;
 }
 
 .header {
-  border-bottom: 1px solid #ddd;
+  // box-shadow: 0 0 8px 0 #888;
+  box-shadow: 0px 15px 30px -15px rgb(0 0 0 / 12%);
   transition: all 0.5s;
   position: fixed;
+  z-index: 999;
   top: 0;
   width: 100%;
   height: auto;
   background-color: #fff;
+
   .container {
     height: auto;
     display: flex;
-    max-width: 1300px;
+    max-width: 1366px;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     padding: 0 10px;
+
     .logo {
       flex: none;
       padding: 5px 10px;
+
       .logo-image {
         cursor: pointer;
         margin-top: 2px;
       }
     }
+
     .nav {
       display: flex;
       flex: 100%;
@@ -59,21 +117,25 @@ a {
       justify-content: flex-start;
       position: relative;
       align-items: flex-start;
-      padding: 5px 0;
+      padding: 10px 0;
+
       a {
         margin: 0 15px;
         display: block;
         transition: all 300ms;
         color: #555;
+
         &:hover {
           color: #000;
         }
       }
     }
+
     .search {
       text-align: left;
       padding: 0 5px;
       flex: 1;
+
       input {
         border: none;
         width: 100%;
@@ -83,10 +145,12 @@ a {
         font-family: inherit;
         background-color: #eee;
       }
+
       form {
         position: relative;
         max-width: 400px;
       }
+
       button {
         position: absolute;
         left: 1px;
@@ -98,64 +162,125 @@ a {
         background-color: transparent;
       }
     }
+
     .bar {
       flex: none;
-      order:-1;
+      order: -1;
       padding: 5px 10px;
       display: none;
     }
+
     .cart {
       padding: 0 10px;
       border-right: 1px solid #eee;
+
       .cart-link {
         cursor: pointer;
       }
     }
+
     .login {
       flex: none;
       padding: 0 10px;
+
       .login-link {
         cursor: pointer;
       }
     }
   }
 }
-.footer{
+
+.footer {
   background-color: #eee;
   border-top: 1px solid #ddd;
   text-align: center;
   padding: 50px;
-  h1{
+
+  h1 {
     padding: 0;
     margin: 0;
   }
 }
 
+.slider {
+  width: 100%;
+  text-align: center;
+  max-width: 1366px;
+  margin: 0 auto;
+  overflow: hidden;
+  &:hover .next-button,:hover .prev-button{
+    display: flex;
+  }
+}
+
+.next-button{
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  top:50%;
+  font-size: 25px;
+  transform: translateY(-50%);
+  right: 10px;
+  width: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+}
+.prev-button{
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  top:50%;
+  font-size: 25px;
+  transform: translateY(-50%);
+  left: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+}
+
+
 // ------------media query--------------------------
 
-@media (max-width: 400px) {
-}
+@media (max-width: 400px) {}
+
 @media (max-width: 600px) {
+  body{
+    padding: 13px 0 0 0;
+  }
   .nav {
     height: 0;
     flex-wrap: wrap;
     flex: 100%;
     padding: 0 !important;
+
     a {
       flex: 1 1 100%;
       padding: 5px;
       margin: 10px !important;
     }
   }
+
   .bar {
     display: inline-block !important;
   }
 }
-@media (max-width: 800px) {
-}
-@media (max-width: 1000px) {
-}
+
+@media (max-width: 800px) {}
+
+@media (max-width: 1000px) {}
+
 @media (min-width: 1001px) {
+  .header{
+    .container{
+      padding: 0;
+    }
+  }
 }
-
-

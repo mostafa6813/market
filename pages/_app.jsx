@@ -8,6 +8,7 @@ import { useStore } from '../state-management/store'
 
 
 
+
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
   let myScroll = 0
@@ -16,10 +17,12 @@ function MyApp({ Component, pageProps }) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > myScroll && window.scrollY >= ele.offsetHeight) {
         ele.style.transform = `translateY(-${ele.offsetHeight}px)`
+        ele.style.boxShadow = 'none'
         myScroll = window.scrollY
       }
       if (window.scrollY < myScroll) {
         ele.style.transform = `translateY(0)`
+        ele.style.boxShadow = '0 15px 30px -15px rgb(0 0 0 / 15%)'
         myScroll = window.scrollY
       }
     })
