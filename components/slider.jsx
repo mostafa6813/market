@@ -13,6 +13,7 @@ import image5 from '../public/image5.jpg'
 export default function MainSlider() {
     const settings = {
         dots: true,
+        fade:true,
         infinite: true,
         pauseOnHover:false,
         speed: 500,

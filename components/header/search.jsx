@@ -4,7 +4,7 @@ export default function Search() {
     return (
         <div className='search'>
             <form>
-                <input type='text' />
+                <input type='text' placeholder='Search...'/>
                 <button type="submit">
                     <SearchOutlinedIcon/>
                 </button>

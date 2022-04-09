@@ -10,7 +10,7 @@ html {
 
 html,
 body {
-  padding: 43px 0 0 0;
+  padding: 0;
   margin: 0;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -21,8 +21,18 @@ a {
   text-decoration: none;
 }
 
+.main-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 95px 0 116px 0;
+}
 
-// slider setting
+.menu {
+  height: 200px !important;
+  margin-bottom: 5px;
+}
+
+// main slider setting
 .button__bar {
   display: inline-block;
   vertical-align: middle;
@@ -57,11 +67,10 @@ a {
 
 .button__bar li.slick-active button {
   transition: all 500ms;
-  width:30px;
+  background: rgba(231, 98, 98, 0.8);
 }
 
-.button__bar li button:hover,
-.button__bar li button:focus {
+.button__bar li button:hover {
   background: rgba(231, 98, 98, 0.8);
   outline: 0;
 }
@@ -71,16 +80,10 @@ a {
   display: block;
   margin: auto;
 }
-// end slider setting
 
-.menu {
-  height: 200px !important;
-  margin-bottom: 5px;
-}
-
+// header
 .header {
-  // box-shadow: 0 0 8px 0 #888;
-  box-shadow: 0px 15px 30px -15px rgb(0 0 0 / 12%);
+  box-shadow: 0px 15px 30px -15px rgb(0 0 0 / 15%);
   transition: all 0.5s;
   position: fixed;
   z-index: 999;
@@ -190,14 +193,62 @@ a {
   }
 }
 
+// home page
+.category {
+  padding: 50px 0;
+  color: #888;
+  h3 {
+    padding: 10px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .detials {
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .img {
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 200px;
+      transition: 1s all;
+
+      .text {
+        text-align: center;
+      }
+
+      &:hover {
+        box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+      }
+    }
+  }
+}
+
+
+// footer 
 .footer {
-  background-color: #eee;
-  border-top: 1px solid #ddd;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding: 0;
   text-align: center;
-  padding: 50px;
+  background-color: #E5EDED;
+  text-align: center;
 
   h1 {
-    padding: 0;
+    padding: 30px;
+    margin: 0;
+  }
+
+  .copyright {
+    text-align: left;
+    font-size: 14px;
+    padding: 5px;
+    color: rgb(51, 51, 51);
     margin: 0;
   }
 }
@@ -208,16 +259,19 @@ a {
   max-width: 1366px;
   margin: 0 auto;
   overflow: hidden;
-  &:hover .next-button,:hover .prev-button{
+  position: relative;
+
+  &:hover .next-button,
+  :hover .prev-button {
     display: flex;
   }
 }
 
-.next-button{
+.next-button {
   position: absolute;
   cursor: pointer;
   z-index: 1;
-  top:50%;
+  top: 50%;
   font-size: 25px;
   transform: translateY(-50%);
   right: 10px;
@@ -227,13 +281,14 @@ a {
   align-items: center;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
-.prev-button{
+
+.prev-button {
   position: absolute;
   cursor: pointer;
   z-index: 1;
-  top:50%;
+  top: 50%;
   font-size: 25px;
   transform: translateY(-50%);
   left: 10px;
@@ -243,7 +298,7 @@ a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 
@@ -252,9 +307,10 @@ a {
 @media (max-width: 400px) {}
 
 @media (max-width: 600px) {
-  body{
-    padding: 13px 0 0 0;
+  .main-container {
+    padding: 44px 0 116px 0 !important;
   }
+
   .nav {
     height: 0;
     flex-wrap: wrap;
@@ -263,8 +319,8 @@ a {
 
     a {
       flex: 1 1 100%;
-      padding: 5px;
-      margin: 10px !important;
+      padding: 10px;
+      margin: 5px !important;
     }
   }
 
@@ -278,8 +334,8 @@ a {
 @media (max-width: 1000px) {}
 
 @media (min-width: 1001px) {
-  .header{
-    .container{
+  .header {
+    .container {
       padding: 0;
     }
   }

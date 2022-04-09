@@ -6,9 +6,6 @@ import { useEffect } from 'react'
 import { Provider } from 'react-redux'
 import { useStore } from '../state-management/store'
 
-
-
-
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
   let myScroll = 0
