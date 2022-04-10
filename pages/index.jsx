@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch } from 'react-redux'
 import Router from "next/router"
-import MainSlider from "../components/slider"
+import MainSlider from "../components/main-slider"
 import Category from "../components/category"
+import Bestselling from "../components/Bestselling"
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -26,5 +27,6 @@ export default function Home() {
   return <div className="index-page">
     <MainSlider />
     <Category/>
+    <Bestselling/>
   </div>
 }
